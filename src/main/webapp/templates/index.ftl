@@ -10,7 +10,7 @@
 
 </head>
 <body>
-<h1>Hello, ${who}</h1>
+<h1>Hello, ${name}</h1>
 
 <script src="/static/lib/jquery/dist/jquery.min.js"></script>
 <script src="/static/lib/bootstrap/dist/js/bootstrap.min.js"></script>

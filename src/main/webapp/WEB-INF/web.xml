@@ -4,50 +4,68 @@
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-  <servlet>
-    <servlet-name>sourcememo-resource</servlet-name>
-    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
-    <init-param>
-      <param-name>javax.ws.rs.Application</param-name>
-      <param-value>me.protox.ServerConfig</param-value>
-    </init-param>
-    <init-param>
-      <param-name>jersey.config.server.mvc.templateBasePath.freemarker</param-name>
-      <param-value>templates</param-value>
-    </init-param>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
+    <servlet>
+        <servlet-name>sourcememo-resource</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>me.protox.ServerConfig</param-value>
+        </init-param>
+        <init-param>
+            <param-name>jersey.config.server.mvc.templateBasePath.freemarker</param-name>
+            <param-value>templates</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
-  <servlet-mapping>
-    <servlet-name>sourcememo-resource</servlet-name>
-    <url-pattern>/*</url-pattern>
-  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sourcememo-resource</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
 
 
-  <servlet>
-    <servlet-name>static</servlet-name>
-    <servlet-class>org.eclipse.jetty.servlet.DefaultServlet</servlet-class>
-    <init-param>
-      <param-name>acceptRanges</param-name>
-      <param-value>true</param-value>
-    </init-param>
-    <init-param>
-      <param-name>gzip</param-name>
-      <param-value>true</param-value>
-    </init-param>
-    <init-param>
-      <param-name>etags</param-name>
-      <param-value>true</param-value>
-    </init-param>
-    <init-param>
-      <param-name>cacheControl</param-name>
-      <param-value>false</param-value>
-    </init-param>
-  </servlet>
+    <servlet>
+        <servlet-name>static</servlet-name>
+        <servlet-class>org.eclipse.jetty.servlet.DefaultServlet</servlet-class>
+        <init-param>
+            <param-name>acceptRanges</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>gzip</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>etags</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>resourceCache</param-name>
+            <param-value></param-value>
+        </init-param>
+        <init-param>
+            <param-name>maxCacheSize</param-name>
+            <param-value>1024000</param-value>
+        </init-param>
+        <init-param>
+            <param-name>maxCachedFileSize</param-name>
+            <param-value>1024000</param-value>
+        </init-param>
+        <init-param>
+            <param-name>maxCachedFiles</param-name>
+            <param-value>100</param-value>
+        </init-param>
+        <init-param>
+            <!--turn on 304 Not Modified for static resource-->
+            <param-name>cacheControl</param-name>
+            <param-value>true</param-value>
+        </init-param>
 
-  <servlet-mapping>
-    <servlet-name>static</servlet-name>
-    <url-pattern>/static/*</url-pattern>
-  </servlet-mapping>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>static</servlet-name>
+        <url-pattern>/static/*</url-pattern>
+    </servlet-mapping>
 
 </web-app>

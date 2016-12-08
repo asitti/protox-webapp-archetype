@@ -7,7 +7,14 @@
         </encoder>
     </appender>
 
-    <root level="debug">
+    <root level="DEBUG">
         <appender-ref ref="STDOUT"/>
     </root>
+
+
+    <logger name="com.zaxxer.hikari.pool.HikariPool" level="INFO"/>
+    <logger name="org.jooq" level="INFO"/>
+    <logger name="org.jooq.Constants" level="OFF"/>
+
+    <logger name="me.protox.jersey.ext.jooq.DSLContextFactory" level="INFO"/>
 </configuration>

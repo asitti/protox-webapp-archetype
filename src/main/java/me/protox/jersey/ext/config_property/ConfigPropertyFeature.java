@@ -11,9 +11,6 @@ import javax.ws.rs.core.Configuration;
 import javax.ws.rs.core.Feature;
 import javax.ws.rs.core.FeatureContext;
 
-/**
- * Created by fengzh on 12/7/16.
- */
 public class ConfigPropertyFeature implements Feature {
 
     static final Logger LOGGER = LoggerFactory.getLogger(ConfigPropertyFeature.class);
@@ -33,6 +30,6 @@ public class ConfigPropertyFeature implements Feature {
                 }
             });
         }
-        return false;
+        return true;
     }
 }

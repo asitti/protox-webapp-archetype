@@ -14,12 +14,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URISyntaxException;
 
-/**
- * Created by fengzh on 12/7/16.
- */
 public class ConfigPropertyResolver implements InjectionResolver<ConfigProperty> {
 
     static final Logger LOGGER = LoggerFactory.getLogger(ConfigPropertyResolver.class);
@@ -51,16 +47,16 @@ public class ConfigPropertyResolver implements InjectionResolver<ConfigProperty>
         String propValue = config.getString(configProperty.name(), configProperty.defaultValue()).trim();
 
         if (!configProperty.allowBlank() && StringUtils.isBlank(propValue)) {
-            throw new IllegalArgumentException(configProperty.name() + " doesn't allow blank value");
+            throw new IllegalArgumentException(configProperty.name() + " doesn't allow blank name");
         }
 
         if (injectee.getRequiredType().equals(String.class)) {
             return propValue;
-        } else if (injectee.getRequiredType().equals(Integer.class)) {
+        } else if (injectee.getRequiredType().equals(Integer.TYPE)) {
             return Integer.valueOf(propValue);
-        } else if (injectee.getRequiredType().equals(Long.class)) {
+        } else if (injectee.getRequiredType().equals(Long.TYPE)) {
             return Long.valueOf(propValue);
-        } else if (injectee.getRequiredType().equals(Boolean.class)) {
+        } else if (injectee.getRequiredType().equals(Boolean.TYPE)) {
             return Boolean.valueOf(propValue);
         }
 

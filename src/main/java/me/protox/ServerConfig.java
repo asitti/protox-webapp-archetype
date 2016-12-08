@@ -3,6 +3,7 @@ package me.protox;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import me.protox.jersey.ext.config_property.ConfigPropertyFeature;
+import me.protox.jersey.ext.jooq.JooqFeature;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.mvc.freemarker.FreemarkerMvcFeature;
@@ -16,6 +17,7 @@ public class ServerConfig extends ResourceConfig {
         register(FreemarkerMvcFeature.class);
         register(JacksonFeature.class);
         register(ConfigPropertyFeature.class);
+        register(JooqFeature.class);
 
         register((ContextResolver<ObjectMapper>) type -> {
             ObjectMapper objectMapper = new ObjectMapper();

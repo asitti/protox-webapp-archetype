@@ -20,4 +20,19 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <!--<resources>-->
+            <!--<resource>-->
+                <!--<directory>${project.parent.basedir}/shared-resources/dev</directory>-->
+                <!--<includes>**/*.*</includes>-->
+            <!--</resource>-->
+        <!--</resources>-->
+        <!--<testResources>-->
+            <!--<testResource>-->
+                <!--<directory>${project.parent.basedir}/shared-resources/test</directory>-->
+                <!--<includes>**/*.*</includes>-->
+            <!--</testResource>-->
+        <!--</testResources>-->
+    </build>
+
 </project>

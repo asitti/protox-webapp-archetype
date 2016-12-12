@@ -34,10 +34,6 @@ public class JooqFeature implements Feature {
     }
 
     static class Binder extends AbstractBinder {
-        Binder() {
-            LOGGER.info("111");
-        }
-
         @Override
         protected void configure() {
             bindFactory(DSLContextFactory.class).to(DSLContext.class).proxy(true).proxyForSameScope(true).in(RequestScoped.class);

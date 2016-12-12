@@ -16,5 +16,5 @@
     <logger name="org.jooq" level="INFO"/>
     <logger name="org.jooq.Constants" level="OFF"/>
 
-    <logger name="me.protox.jersey.ext.jooq.DSLContextFactory" level="INFO"/>
+    <logger name="me.protox.jersey.me.protox.jersey.ext.jooq.DSLContextFactory" level="INFO"/>
 </configuration>

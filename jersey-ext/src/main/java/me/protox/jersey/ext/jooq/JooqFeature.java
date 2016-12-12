@@ -22,21 +22,27 @@ public class JooqFeature implements Feature {
 
     static final Logger LOGGER = LoggerFactory.getLogger(JooqFeature.class);
 
+    private static final Binder BINDER = new Binder();
+
     @Override
     public boolean configure(FeatureContext context) {
-        if (!context.getConfiguration().isRegistered(TransactionFilter.class)) {
+        if (!context.getConfiguration().isRegistered(BINDER)) {
             LOGGER.debug("Register JooqFeature");
-            context.register(TransactionFilter.class);
-            context.register(new AbstractBinder() {
-                @Override
-                protected void configure() {
-                    bindFactory(DSLContextFactory.class).to(DSLContext.class).proxy(true).proxyForSameScope(true).in(RequestScoped.class);
-                    bindFactory(ConnectionFactory.class).to(Connection.class).proxy(true).proxyForSameScope(true).in(RequestScoped.class);
-                    bindFactory(DataSourceFactory.class).to(DataSource.class).proxy(true).proxyForSameScope(true).in(Singleton.class);
-                }
-            });
-
+            context.register(BINDER);
         }
         return true;
+    }
+
+    static class Binder extends AbstractBinder {
+        Binder() {
+            LOGGER.info("111");
+        }
+
+        @Override
+        protected void configure() {
+            bindFactory(DSLContextFactory.class).to(DSLContext.class).proxy(true).proxyForSameScope(true).in(RequestScoped.class);
+            bindFactory(ConnectionFactory.class).to(Connection.class).proxy(true).proxyForSameScope(true).in(RequestScoped.class);
+            bindFactory(DataSourceFactory.class).to(DataSource.class).proxy(true).proxyForSameScope(true).in(Singleton.class);
+        }
     }
 }

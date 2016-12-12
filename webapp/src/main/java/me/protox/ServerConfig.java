@@ -19,6 +19,8 @@ public class ServerConfig extends ResourceConfig {
         register(ConfigPropertyFeature.class);
         register(JooqFeature.class);
 
+        register(CustomBinder.class);
+
         register((ContextResolver<ObjectMapper>) type -> {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES);

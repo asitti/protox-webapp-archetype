@@ -1,8 +1,8 @@
-package me.protox.jersey.ext.jooq;
+package me.protox.archetype.jersey.ext.jooq;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import me.protox.jersey.ext.config_property.ConfigProperty;
+import me.protox.archetype.jersey.ext.config_property.ConfigProperty;
 import org.glassfish.hk2.api.Factory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

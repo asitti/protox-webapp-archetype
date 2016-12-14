@@ -1,4 +1,4 @@
-package me.protox.jersey.ext.config_property;
+package me.protox.archetype.jersey.ext.config_property;
 
 import org.apache.commons.configuration2.CombinedConfiguration;
 import org.apache.commons.configuration2.PropertiesConfiguration;

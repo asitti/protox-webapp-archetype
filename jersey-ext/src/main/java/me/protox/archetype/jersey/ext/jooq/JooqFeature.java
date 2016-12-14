@@ -1,4 +1,4 @@
-package me.protox.jersey.ext.jooq;
+package me.protox.archetype.jersey.ext.jooq;
 
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.glassfish.jersey.process.internal.RequestScoped;

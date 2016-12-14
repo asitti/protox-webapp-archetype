@@ -1,4 +1,4 @@
-package me.protox.jersey.ext.config_property;
+package me.protox.archetype.jersey.ext.config_property;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

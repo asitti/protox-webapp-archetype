@@ -1,4 +1,4 @@
-package me.protox.jersey.ext.config_property;
+package me.protox.archetype.jersey.ext.config_property;
 
 import org.glassfish.hk2.api.InjectionResolver;
 import org.glassfish.hk2.api.TypeLiteral;

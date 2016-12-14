@@ -1,4 +1,4 @@
-package me.protox;
+package me.protox.archetype;
 
 import org.junit.Test;
 

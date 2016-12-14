@@ -1,6 +1,6 @@
-package me.protox.resource;
+package me.protox.archetype.resource;
 
-import me.protox.jersey.ext.config_property.ConfigProperty;
+import me.protox.archetype.jersey.ext.config_property.ConfigProperty;
 import org.glassfish.jersey.server.mvc.Viewable;
 import org.jooq.DSLContext;
 import org.slf4j.Logger;

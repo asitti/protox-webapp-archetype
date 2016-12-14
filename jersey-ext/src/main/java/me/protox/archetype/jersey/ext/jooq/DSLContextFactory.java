@@ -1,4 +1,4 @@
-package me.protox.jersey.ext.jooq;
+package me.protox.archetype.jersey.ext.jooq;
 
 import org.glassfish.hk2.api.Factory;
 import org.jooq.DSLContext;

@@ -12,10 +12,10 @@
     </root>
 
 
-    <logger name="com.zaxxer.hikari.pool.HikariPool" level="INFO"/>
-    <logger name="org.jooq" level="INFO"/>
-    <logger name="org.jooq.Constants" level="OFF"/>
+    <logger name="com.zaxxer.hikari.pool.HikariPool" level="WARN"/>
+    <logger name="org.jooq" level="WARN"/>
+    <logger name="org.jooq.Constants" level="WARN"/>
 
-    <logger name="me.protox.archetype.jersey.ext.jooq" level="INFO"/>
+    <logger name="me.protox.archetype.jersey.ext.jooq" level="DEBUG"/>
     <logger name="me.protox.archetype.jersey.ext.json_param" level="INFO"/>
 </configuration>

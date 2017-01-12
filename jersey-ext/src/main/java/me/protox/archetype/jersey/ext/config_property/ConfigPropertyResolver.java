@@ -20,15 +20,18 @@ public class ConfigPropertyResolver implements InjectionResolver<ConfigProperty>
 
     static final Logger LOGGER = LoggerFactory.getLogger(ConfigPropertyResolver.class);
 
-    static CombinedConfiguration config = new CombinedConfiguration(new OverrideCombiner());
+    public static CombinedConfiguration config = new CombinedConfiguration(new OverrideCombiner());
 
-    public ConfigPropertyResolver() throws URISyntaxException, ConfigurationException {
-        // System Property has higher priority than config.properties
-        Configurations configs = new Configurations();
-        File defaultConfigFile = new File(getClass().getResource("/config.properties").toURI());
-        PropertiesConfiguration defaultConfiguration = configs.properties(defaultConfigFile);
-        config.addConfiguration(new SystemConfiguration());
-        config.addConfiguration(defaultConfiguration);
+    static {
+        try {
+            Configurations configs = new Configurations();
+            File defaultConfigFile = new File(ConfigPropertyResolver.class.getResource("/config.properties").toURI());
+            PropertiesConfiguration defaultConfiguration = configs.properties(defaultConfigFile);
+            config.addConfiguration(new SystemConfiguration());
+            config.addConfiguration(defaultConfiguration);
+        } catch (URISyntaxException | ConfigurationException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

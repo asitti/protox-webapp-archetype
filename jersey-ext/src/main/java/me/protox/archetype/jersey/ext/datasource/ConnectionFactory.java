@@ -1,4 +1,4 @@
-package me.protox.archetype.jersey.ext.jooq;
+package me.protox.archetype.jersey.ext.datasource;
 
 import org.glassfish.hk2.api.Factory;
 import org.slf4j.Logger;
@@ -10,12 +10,12 @@ import javax.ws.rs.container.ContainerRequestContext;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import static me.protox.archetype.jersey.ext.jooq.JooqFeature.PROP_SHOULD_COMMIT;
-import static me.protox.archetype.jersey.ext.jooq.JooqFeature.PROP_SQL_CONNECTION;
-
 public class ConnectionFactory implements Factory<Connection> {
 
     static final Logger LOGGER = LoggerFactory.getLogger(ConnectionFactory.class);
+
+    public static final String PROP_SQL_CONNECTION = "java.sql.Connection";
+    public static final String PROP_SHOULD_COMMIT = "java.sql.Connection.shouldCommit";
 
     @Inject
     DataSource dataSource;
@@ -51,6 +51,7 @@ public class ConnectionFactory implements Factory<Connection> {
                 connection.rollback();
                 committed = false;
             }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {

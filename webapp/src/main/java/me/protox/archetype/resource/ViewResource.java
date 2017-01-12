@@ -1,6 +1,7 @@
 package me.protox.archetype.resource;
 
 import me.protox.archetype.jersey.ext.config_property.ConfigProperty;
+import me.protox.archetype.jersey.ext.datasource.Transaction;
 import org.glassfish.jersey.server.mvc.Viewable;
 import org.jooq.DSLContext;
 import org.slf4j.Logger;
@@ -12,6 +13,9 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.TreeMap;
 
 @Path("/")
@@ -27,15 +31,25 @@ public class ViewResource {
     DataSource dataSource;
 
     @Inject
+    Connection connection;
+
+    @Inject
     DSLContext dslContext;
 
+    @Inject
+    Transaction transaction;
+
     @GET
-    public Viewable index() {
-        dslContext.execute("select 1;");
+    public Viewable index() throws SQLException {
+        transaction.markRollback();
+        LOGGER.info("{}", transaction);
+        ResultSet rs = connection.createStatement().executeQuery("select 1;");
+        while (rs.next()) {
+            System.out.println(rs.getInt(1));
+        }
         return new Viewable("/index", new TreeMap<String, Object>() {{
             put("name", name);
         }});
     }
-
 
 }

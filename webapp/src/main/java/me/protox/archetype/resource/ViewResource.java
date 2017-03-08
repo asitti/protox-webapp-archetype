@@ -8,10 +8,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
+import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.container.ContainerRequestContext;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -38,6 +41,9 @@ public class ViewResource {
 
     @Inject
     Transaction transaction;
+
+    @Context
+    ServletContext servletContext;
 
     @GET
     public Viewable index() throws SQLException {

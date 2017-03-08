@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1>Hello, ${name}</h1>
-
+<h1>contextPath, ${contextPath}</h1>
 <script src="/static/lib/jquery/dist/jquery.min.js"></script>
 <script src="/static/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
